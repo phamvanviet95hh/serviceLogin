@@ -13,4 +13,5 @@ public class StaffDto {
     private String createAt;
     private String updateAt;
     private String deleteAt;
+    private String emailStaff;
 }

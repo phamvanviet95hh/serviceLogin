@@ -1,13 +1,17 @@
 package com.gtelMicroservice.sevicelogin.controllers;
 
 import com.gtelMicroservice.sevicelogin.dtos.StaffDto;
+import com.gtelMicroservice.sevicelogin.dtos.requestBody.loginDto;
 import com.gtelMicroservice.sevicelogin.dtos.response.DefaultResponse;
+import com.gtelMicroservice.sevicelogin.models.StaffModel;
 import com.gtelMicroservice.sevicelogin.services.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/")
@@ -29,5 +33,9 @@ public class mscNvController {
             message = "Create Staff Fail!!";
         }
         return new DefaultResponse(success, message);
+    }
+    @PostMapping("login")
+    public Optional<StaffModel> login(@RequestBody loginDto loginDto){
+        return staffService.login(loginDto);
     }
 }
