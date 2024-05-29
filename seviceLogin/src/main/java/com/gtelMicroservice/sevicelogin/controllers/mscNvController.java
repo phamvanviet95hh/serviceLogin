@@ -21,6 +21,7 @@ public class mscNvController {
     private StaffService staffService;
     Boolean success;
     String message;
+    String check;
 
     @PostMapping("createStaff")
     public DefaultResponse createStaff(@RequestBody StaffDto staff){
